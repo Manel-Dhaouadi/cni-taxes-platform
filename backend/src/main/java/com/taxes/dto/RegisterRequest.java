@@ -4,13 +4,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class RegisterRequest {
 
     @NotBlank(message = "Le CIN est obligatoire")
@@ -41,4 +35,24 @@ public class RegisterRequest {
         message = "Le mot de passe doit contenir une majuscule, une minuscule, un chiffre et un caractère spécial"
     )
     private String motDePasse;
+
+    public RegisterRequest() {}
+
+    // ===== GETTERS =====
+    public String getCin() { return cin; }
+    public String getNom() { return nom; }
+    public String getPrenom() { return prenom; }
+    public String getEmail() { return email; }
+    public String getTelephone() { return telephone; }
+    public String getAdresse() { return adresse; }
+    public String getMotDePasse() { return motDePasse; }
+
+    // ===== SETTERS =====
+    public void setCin(String cin) { this.cin = cin; }
+    public void setNom(String nom) { this.nom = nom; }
+    public void setPrenom(String prenom) { this.prenom = prenom; }
+    public void setEmail(String email) { this.email = email; }
+    public void setTelephone(String telephone) { this.telephone = telephone; }
+    public void setAdresse(String adresse) { this.adresse = adresse; }
+    public void setMotDePasse(String motDePasse) { this.motDePasse = motDePasse; }
 }

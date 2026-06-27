@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f6f9; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 10px; padding: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header { text-align: center; border-bottom: 3px solid #1a237e; padding-bottom: 20px; }
+        .logo { font-size: 24px; color: #1a237e; font-weight: bold; }
+        .content { padding: 20px 0; }
+        .footer { text-align: center; color: #666; font-size: 12px; border-top: 1px solid #eee; padding-top: 20px; }
+        .btn { display: inline-block; background: #1a237e; color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; }
+        .status { display: inline-block; background: #ffc107; color: #333; padding: 5px 15px; border-radius: 20px; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🏛️ Plateforme Taxes Locatives</div>
+        </div>
+        <div class="content">
+            <h2>Bienvenue, <span th:text="${nom}"></span> !</h2>
+            <p>Nous vous confirmons la réception de votre demande d'inscription sur la plateforme.</p>
+            <p><strong>Email :</strong> <span th:text="${email}"></span></p>
+            <p><strong>Statut :</strong> <span class="status">⏳ En attente de validation</span></p>
+            <p>Votre compte sera activé après validation par l'administrateur.</p>
+            <p>Vous recevrez un email de confirmation avec vos identifiants de connexion.</p>
+            <br>
+            <a th:href="${frontendUrl}" class="btn">Accéder à la plateforme</a>
+        </div>
+        <div class="footer">
+            <p>© 2026 Plateforme Taxes Locatives - Tous droits réservés</p>
+        </div>
+    </div>
+</body>
+</html>
