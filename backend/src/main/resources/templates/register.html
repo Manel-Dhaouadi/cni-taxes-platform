@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Plateforme Taxes Locatives</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2a4a 30%, #1a237e 60%, #0d47a1 100%);
+        }
+        
+        .container {
+            max-width: 520px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 28px;
+            padding: 45px 40px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+            animation: fadeUp 0.8s ease;
+        }
+        
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .logo .icon {
+            font-size: 44px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: #1a237e;
+            font-weight: 700;
+        }
+        
+        .logo p {
+            font-size: 14px;
+            color: #888;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e0e4e8;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: all 0.3s;
+            background: #f8fafc;
+        }
+        
+        .form-group input:focus {
+            border-color: #1a237e;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 35, 126, 0.1);
+            background: white;
+        }
+        
+        .btn-register {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #1a237e, #1976d2);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 5px;
+        }
+        
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(26, 35, 126, 0.35);
+        }
+        
+        .links {
+            text-align: center;
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid #eef2f6;
+        }
+        
+        .links p {
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .links p a {
+            color: #1a237e;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .links p a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+            .container { padding: 30px 20px; }
+            .form-row { flex-direction: column; gap: 0; }
+        }
+        
+        @media (max-width: 480px) {
+            .container { padding: 25px 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <span class="icon">📝</span>
+            <h1>Inscription</h1>
+            <p>Créer votre compte agent municipal</p>
+        </div>
+        
+        <form action="/register" method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="cin">CIN</label>
+                    <input type="text" id="cin" name="cin" placeholder="12345678" required>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Téléphone</label>
+                    <input type="tel" id="telephone" name="telephone" placeholder="71 123 456" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" placeholder="Ben Ali" required>
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Ahmed" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email professionnel</label>
+                <input type="email" id="email" name="email" placeholder="ahmed.benali@municipalite.tn" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="adresse">Adresse</label>
+                <input type="text" id="adresse" name="adresse" placeholder="5 Rue de Tunis, Tunis" required>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="motDePasse">Mot de passe</label>
+                    <input type="password" id="motDePasse" name="motDePasse" placeholder="••••••••" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmer</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn-register">Créer mon compte</button>
+        </form>
+        
+        <div class="links">
+            <p>Déjà inscrit ? <a href="/login">Se connecter</a></p>
+        </div>
+    </div>
+</body>
+</html>

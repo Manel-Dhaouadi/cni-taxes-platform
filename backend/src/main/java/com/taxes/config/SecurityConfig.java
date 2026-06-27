@@ -33,12 +33,18 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                // ✅ PAGES PUBLIQUES (ACCÈS LIBRE)
+                .requestMatchers("/", "/login", "/register", "/home").permitAll()
+                // ✅ DOCUMENTATION API
+                .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                // ✅ API PUBLIQUES
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/api/public/**").permitAll()
                 .requestMatchers("/actuator/**").permitAll()
+                // ✅ PROTÉGÉ PAR RÔLE
                 .requestMatchers("/api/admin/**").hasRole("SUPER_ADMIN")
                 .requestMatchers("/api/agent/**").hasAnyRole("AGENT_MUNICIPAL", "SUPER_ADMIN")
+                // ✅ TOUTE AUTRE REQUÊTE DOIT ÊTRE AUTHENTIFIÉE
                 .anyRequest().authenticated()
             )
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
